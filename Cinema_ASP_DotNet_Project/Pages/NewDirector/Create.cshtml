@@ -1,0 +1,31 @@
+﻿@page
+@model Cinema_ASP_DotNet_Project.Pages.NewDirector.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h4>Director</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Director.TheDirectors" class="control-label">New Director</label>
+                <input asp-for="Director.TheDirectors" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Director.TheDirectors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="../MoviePages/Index">Back to Movies</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

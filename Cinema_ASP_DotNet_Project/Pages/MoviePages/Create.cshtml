@@ -1,0 +1,49 @@
+﻿@page
+@model Cinema_ASP_DotNet_Project.Pages.MoviePages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>New Movie</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Movies.MovieTitle" class="control-label">Movie Title</label>
+                <input asp-for="Movies.MovieTitle" class="form-control" autocomplete="off"/>
+                <span asp-validation-for="Movies.MovieTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.GenreId" class="control-label">Genre</label>
+                <select asp-for="Movies.GenreId" class ="form-control" asp-items="ViewBag.GenreId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.YearOfReleaseId" class="control-label">Year Of Release</label>
+                <select asp-for="Movies.YearOfReleaseId" class ="form-control" asp-items="ViewBag.YearOfReleaseId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.AgeRatingId" class="control-label">Age Rating</label>
+                <select asp-for="Movies.AgeRatingId" class ="form-control" asp-items="ViewBag.AgeRatingId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Movies.DirectorId" class="control-label">Director</label>
+                <select asp-for="Movies.DirectorId" class ="form-control" asp-items="ViewBag.DirectorId"></select>
+                <a asp-page="../NewDirector/Create">Add New Director</a>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

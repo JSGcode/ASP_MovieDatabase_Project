@@ -1,0 +1,36 @@
+﻿@page
+@model Cinema_ASP_DotNet_Project.Pages.NewDirector.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Director[0].TheDirectors)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Director) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TheDirectors)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DirectorId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DirectorId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DirectorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@page
+@model Cinema_ASP_DotNet_Project.Pages.NewDirector.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Director</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Director.DirectorId" />
+            <div class="form-group">
+                <label asp-for="Director.TheDirectors" class="control-label"></label>
+                <input asp-for="Director.TheDirectors" class="form-control" autocomplete="off" />
+                <span asp-validation-for="Director.TheDirectors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="../MoviePages/Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
